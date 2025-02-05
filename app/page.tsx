@@ -25,6 +25,7 @@ export default function Home() {
       price: 399,
     },
   ];
+  
   return (
     <div className="min-h-screen bg-white">
       <section className="h-screen relative overflow-hidden">
@@ -75,7 +76,7 @@ export default function Home() {
               </div>
               <div className="mt-4">
                 <h3 className="text-lg font-medium">{item.name}</h3>
-                <p className="text-gray-600 mt-1">
+                <p className="mt-1">
                   Starting from ${item.price}
                 </p>
               </div>
@@ -90,7 +91,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-light mb-6">Our Story</h2>
-              <p className="text-gray-600 mb-8">
+              <p className="mb-8">
                 Founded on the principles of quality and sustainability, Silk
                 Route brings together traditional craftsmanship with modern
                 design sensibilities. Our journey began with a simple idea: to
@@ -116,7 +117,7 @@ export default function Home() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-3xl font-light mb-6">Sustainable Fashion</h2>
-          <p className="text-gray-600 mb-12">
+          <p className="mb-12">
             We believe in creating fashion that respects both people and planet.
             Every piece is crafted with care using sustainable materials and
             ethical practices.

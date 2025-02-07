@@ -4,6 +4,8 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ReactLenis from "lenis/react";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
+import { Suspense } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,15 +29,19 @@ export default function RootLayout({
 }>) {
   return (
     <ReactLenis root>
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Navbar/>
-        {children}
-        <Footer/>
-      </body>
-    </html>
+      <html lang="en">
+        <NuqsAdapter>
+          <Suspense>
+            <body
+              className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+            >
+              <Navbar />
+              {children}
+              <Footer />
+            </body>
+          </Suspense>
+        </NuqsAdapter>
+      </html>
     </ReactLenis>
   );
 }

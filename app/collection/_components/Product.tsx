@@ -29,12 +29,15 @@ const Product = ({ id }: Props) => {
 
   const handleLike = () => {
     setLike(!like);
-    if (like) localStorage.setItem("liked-products", JSON.stringify(data));
-    else localStorage.removeItem("liked-products");
+    if (like) {
+      localStorage.setItem(`isLiked-${data.id}`, JSON.stringify(true));
+      localStorage.setItem(`liked-products-${data.id}`, JSON.stringify(data));
+    } else {
+      localStorage.removeItem(`isLiked-${data.id}`);
+      localStorage.removeItem(`liked-products-${data.id}`);
+    }
   };
 
-  console.log(localStorage.getItem("liked-products"));
-  
   return (
     <div className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="flex flex-col md:flex-row gap-12 w-full">

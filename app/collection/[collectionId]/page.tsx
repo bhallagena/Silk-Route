@@ -2,9 +2,9 @@ import React from "react";
 import Product from "../_components/Product";
 
 interface Props {
-  params: {
+  params: Promise<{
     collectionId: string;
-  };
+  }>;
 }
 
 const page = async ({ params }: Props) => {

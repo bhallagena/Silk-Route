@@ -25,7 +25,7 @@ export default function Home() {
       price: 399,
     },
   ];
-  
+
   return (
     <div className="min-h-screen bg-white">
       <section className="h-screen relative overflow-hidden">
@@ -76,9 +76,7 @@ export default function Home() {
               </div>
               <div className="mt-4">
                 <h3 className="text-lg font-medium">{item.name}</h3>
-                <p className="mt-1">
-                  Starting from ${item.price}
-                </p>
+                <p className="mt-1">Starting from ${item.price}</p>
               </div>
             </div>
           ))}
@@ -103,7 +101,7 @@ export default function Home() {
               </button>
             </div>
             <div>
-              <img 
+              <img
                 src="https://images.unsplash.com/photo-1486299267070-83823f5448dd?auto=format&fit=crop&q=80"
                 alt="About"
                 className="w-full h-[600px] object-cover"
@@ -138,6 +136,75 @@ export default function Home() {
               </div>
             )
           )}
+        </div>
+      </section>
+
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="text-center max-w-2xl mx-auto flex flex-col items-center justify-center">
+          <h2 className="text-3xl font-light mb-6">Our Partners</h2>
+          <p className="mb-12">We collaborate with top brands of the planet.</p>
+        </div>
+        <div
+          className="flex overflow-hidden h-auto max-w-full bg-[linear-gradient(to right, rgba(255, 255, 255, 0), white)]"
+          style={{ userSelect: "none" }}
+        >
+          <div className="flex flex-shrink-0 items-center animate-slider justify-around whitespace-nowrap w-full">
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((img) => (
+              <div key={img} className="grid place-items-center ">
+                <Image
+                  src={`/logos/${img}.jpg`}
+                  height={69}
+                  width={100}
+                  alt="logo"
+                  className=" mx-12 object-contain"
+                />
+              </div>
+            ))}
+          </div>
+          <div className="flex flex-shrink-0 items-center animate-slider justify-around whitespace-nowrap w-full">
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((img) => (
+              <div key={img} className="grid place-items-center">
+                <Image
+                  src={`/logos/${img}.jpg`}
+                  height={50}
+                  width={100}
+                  alt="logo"
+                  className=" mx-12 object-contain"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+        <div
+          className="flex overflow-hidden h-auto mt-10 max-w-full"
+          style={{ userSelect: "none" }}
+        >
+          <div className="flex flex-shrink-0 items-center animate-slidee justify-around whitespace-nowrap w-full">
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((img) => (
+              <div key={img} className="grid place-items-center ">
+                <Image
+                  src={`/logos/${img}.jpg`}
+                  height={69}
+                  width={100}
+                  alt="logo"
+                  className=" mx-12 object-contain"
+                />
+              </div>
+            ))}
+          </div>
+          <div className="flex flex-shrink-0 items-center animate-slidee justify-around whitespace-nowrap w-full">
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((img) => (
+              <div key={img} className="grid place-items-center">
+                <Image
+                  src={`/logos/${img}.jpg`}
+                  height={50}
+                  width={100}
+                  alt="logo"
+                  className=" mx-12 object-contain"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </div>

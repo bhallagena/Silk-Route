@@ -70,3 +70,26 @@ body {
     @apply bg-background text-foreground;
   }
 }
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+@keyframes slide2 {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-slider{
+  animation: 30s slide infinite linear;
+}
+.animate-slidee{
+  animation: 30s slide2 infinite linear;
+}

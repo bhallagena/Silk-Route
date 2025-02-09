@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import ReactLenis from "lenis/react";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { Suspense } from "react";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,6 +38,7 @@ export default function RootLayout({
             >
               <Navbar />
               {children}
+              <Toaster />
               <Footer />
             </body>
           </Suspense>

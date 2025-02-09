@@ -1,9 +1,11 @@
 "use client";
 
+import AccordionExample from "@/components/Accordion";
 import { collections, CollectionType } from "@/data";
 import { Heart, LucideLoader2 } from "lucide-react";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
+import toast from "react-hot-toast";
 
 interface Props {
   id: string;
@@ -16,6 +18,7 @@ const Product = ({ id }: Props) => {
   useEffect(() => {
     if (id) {
       setData(collections.find((item) => item.id === parseInt(id)));
+      setLike(!!localStorage.getItem(`isLiked-${id}`));
     }
   }, [id]);
 
@@ -29,42 +32,50 @@ const Product = ({ id }: Props) => {
 
   const handleLike = () => {
     setLike(!like);
-    if (like) localStorage.setItem("liked-products", JSON.stringify(data));
-    else localStorage.removeItem("liked-products");
+    if (!like) {
+      localStorage.setItem(`isLiked-${data.id}`, JSON.stringify(true));
+      localStorage.setItem(`liked-products-${data.id}`, JSON.stringify(data));
+      console.log(localStorage.getItem(`isLiked-${data.id}`));
+      toast("Added to liked products !");
+    } else {
+      localStorage.removeItem(`isLiked-${data.id}`);
+      localStorage.removeItem(`liked-products-${data.id}`);
+      toast("Removed from liked products !");
+    }
   };
 
-  console.log(localStorage.getItem("liked-products"));
-  
   return (
     <div className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div className="flex flex-col md:flex-row gap-12 w-full">
-        <div className="flex flex-col md:flex-row gap-2 w-full">
-          <Image
+      <div className="flex flex-col md:flex-row md:justify-center gap-20">
+        <div className="relative overflow-hidden group cursor-pointer w-96 h-full rounded-md">
+          <img
             src={data.image}
             alt={data.name}
-            width={384}
-            height={500}
-            className="w-full h-[500px] object-cover rounded-md"
+            className="w-full h-[500px] object-cover transition-opacity duration-500 group-hover:opacity-0"
           />
-          <Image
+          <img
             src={data.hoverImage}
-            alt={data.name}
-            width={100}
-            height={100}
-            className="w-40 h-40 rounded-md"
+            alt={`${data.name} Alternate View`}
+            className="absolute inset-0 w-full h-[500px] object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
           />
         </div>
-        <div className="flex flex-row justify-between items-start w-full">
-          <div>
-            <h3 className="text-3xl font-bold">{data.name}</h3>
-            <p className="mt-1">Starting from ${data.price}</p>
+        <div className="flex flex-col gap-10">
+          <div className="flex flex-row justify-between items-start gap-32">
+            <div>
+              <h3 className="text-3xl font-bold">{data.name}</h3>
+              <p className="mt-5">Starting from ${data.price}</p>
+            </div>
+            <div>
+              <Heart
+                className={`w-6 h-6 cursor-pointer ${like ? "fill-black" : ""}`}
+                onClick={() => handleLike()}
+              />
+            </div>
           </div>
-          <div>
-            <Heart
-              className={`w-6 h-6 cursor-pointer ${like ? "fill-black" : ""}`}
-              onClick={() => handleLike()}
-            />
-          </div>
+          <AccordionExample />
+          <button className="text-white bg-[#1e1d25] hover:bg-[#3a3941] py-4 uppercase font-bold rounded-md">
+            Enquire Now
+          </button>
         </div>
       </div>
     </div>

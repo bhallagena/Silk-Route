@@ -7,7 +7,7 @@ interface Props {
 
 const CollectionHeader = ({ setSelectedTag, selectedTag }: Props) => {
   return (
-    <div className="text-center mb-16">
+    <div className="text-center mb-16 ">
       <h1 className="text-4xl font-light mb-4">Our Collection</h1>
       <p className="text-gray-600 mb-8">
         Discover our seasonal collections crafted with precision and care

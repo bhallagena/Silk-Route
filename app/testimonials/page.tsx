@@ -124,7 +124,8 @@ function page() {
               What Our Clients Say
             </h1>
             <p className="mt-4 text-xl text-gray-600">
-              Hear directly from our satisfied customers
+            At Silkroute, customer satisfaction is at the heart of everything we do. 
+
             </p>
           </div>
           

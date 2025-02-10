@@ -17,7 +17,7 @@ const page = () => {
       : collections.filter((item) => item.tag === selectedTag);
 
   return (
-    <div className="py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div className="py-28 bg-gradient-to-br from-gray-50 to-gray-100 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-screen">
       {/* Header */}
       <CollectionHeader
         setSelectedTag={setSelectedTag}

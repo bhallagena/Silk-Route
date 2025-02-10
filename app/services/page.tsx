@@ -1,4 +1,5 @@
 "use client"
+import Slide from "@/components/Slide"
 import { Globe, HandHelping, PaintBucket, Ribbon, Stamp, VibrateIcon as Volleyball } from "lucide-react"
 import Image from "next/image"
 import styled from "styled-components"
@@ -50,8 +51,12 @@ const Page = (props: Props) => {
       <div className="max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8">
         <div className="relative max-w-2xl mx-auto sm:text-center">
           <div className="text-center mb-16">
+            <Slide>
             <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl">Our Services</h1>
+            </Slide>
+            <Slide>
             <p className="mt-4 text-xl text-gray-600">Hear directly from our satisfied customers</p>
+            </Slide>
           </div>
           <div className="absolute inset-0 max-w-xs mx-auto h-44 blur-[118px]"></div>
         </div>
@@ -59,10 +64,11 @@ const Page = (props: Props) => {
           <ul className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
             {features.map((item, idx) => (
               <StyledWrapper key={idx}>
+                <Slide>
                 <div className="flip-card">
                   <div className="flip-card-inner">
                     <div className="bg-white flex flex-col items-center justify-center space-y-3 p-6 border rounded-lg flip-card-front">
-                      <div className="text-black pb-3">{item.icon}</div>
+                      <div className="text-black ">{item.icon}</div>
                       <h4 className="text-lg text-gray-900 font-semibold">{item.title}</h4>
                       <p className="text-center text-gray-600">{item.desc}</p>
                     </div>
@@ -77,6 +83,7 @@ const Page = (props: Props) => {
                     </div>
                   </div>
                 </div>
+                </Slide>
               </StyledWrapper>
             ))}
           </ul>

@@ -1,5 +1,7 @@
+"use client"
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import Slide from "@/components/Slide";
 
 export default function Home() {
   const collectionItems = [
@@ -30,7 +32,7 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       <section className="h-screen relative overflow-hidden">
         <img
-          src="/images/0A4A2428.JPG"
+          src="/111.jpg"
           alt="Hero"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -52,9 +54,12 @@ export default function Home() {
 
       {/* Featured Collection */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <Slide>
         <h2 className="text-3xl font-light text-center mb-16">
           Latest Collection
         </h2>
+        </Slide>
+        <Slide>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {collectionItems.map((item) => (
             <div key={item.id} className="group cursor-pointer">
@@ -81,6 +86,7 @@ export default function Home() {
             </div>
           ))}
         </div>
+        </Slide>
       </section>
 
       {/* About Preview */}
@@ -88,18 +94,23 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
+              <Slide>
               <h2 className="text-3xl font-light mb-6">Our Story</h2>
+              </Slide>
+              <Slide>
               <p className="mb-8">
                 Founded on the principles of quality and sustainability, Silk
                 Route brings together traditional craftsmanship with modern
                 design sensibilities. Our journey began with a simple idea: to
                 create timeless pieces that celebrate the art of textile making.
               </p>
+              </Slide>
               <button className="flex items-center text-lg hover:space-x-4 transition-all duration-300">
                 <span>Learn More</span>
                 <ArrowRight className="ml-2 h-5 w-5" />
               </button>
             </div>
+            <Slide>
             <div>
               <img
                 src="https://images.unsplash.com/photo-1486299267070-83823f5448dd?auto=format&fit=crop&q=80"
@@ -107,6 +118,7 @@ export default function Home() {
                 className="w-full h-[600px] object-cover"
               />
             </div>
+            </Slide>
           </div>
         </div>
       </section>
@@ -114,13 +126,18 @@ export default function Home() {
       {/* Sustainability Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center max-w-3xl mx-auto">
+          <Slide>
           <h2 className="text-3xl font-light mb-6">Sustainable Fashion</h2>
+          </Slide>
+          <Slide>
           <p className="mb-12">
             We believe in creating fashion that respects both people and planet.
             Every piece is crafted with care using sustainable materials and
             ethical practices.
           </p>
+          </Slide>
         </div>
+        <Slide>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {["Organic Materials", "Ethical Production", "Zero Waste"].map(
             (item) => (
@@ -137,13 +154,19 @@ export default function Home() {
             )
           )}
         </div>
+        </Slide>
       </section>
 
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center max-w-2xl mx-auto flex flex-col items-center justify-center">
+          <Slide>
           <h2 className="text-3xl font-light mb-6">Our Partners</h2>
+          </Slide>
+          <Slide>
           <p className="mb-12">We collaborate with top brands of the planet.</p>
+          </Slide>
         </div>
+        <Slide>
         <div
           className="flex overflow-hidden h-auto max-w-full bg-[linear-gradient(to right, rgba(255, 255, 255, 0), white)]"
           style={{ userSelect: "none" }}
@@ -161,6 +184,7 @@ export default function Home() {
               </div>
             ))}
           </div>
+          
           <div className="flex flex-shrink-0 items-center animate-slider justify-around whitespace-nowrap w-full">
             {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((img) => (
               <div key={img} className="grid place-items-center">
@@ -206,6 +230,7 @@ export default function Home() {
             ))}
           </div>
         </div>
+        </Slide>
       </section>
     </div>
   );

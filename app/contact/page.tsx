@@ -1,54 +1,79 @@
-"use client"
-import { MapPin, Phone, Mail, Clock } from "lucide-react"
+"use client";
+import Slide from "@/components/Slide";
+import { MapPin, Phone, Mail, Clock, Contact } from "lucide-react";
 
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
-          <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl mb-6 text-center">Contact Us</h1>
-          <p className="text-xl text-gray-600 text-center">
-            Get in touch with us for any inquiries or collaboration opportunities.
+          <div className="flex justify-center mb-4">
+            <Contact className="w-12 h-12 text-primary" />
+          </div>
+          <Slide>
+          <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl text-center">
+            Contact Us
+          </h1>
+          </Slide>
+          <Slide delay={0.2}>
+          <p className="mt-4 text-xl text-gray-600 text-center">
+            Get in touch with us for any inquiries or collaboration
+            opportunities.
           </p>
+          </Slide>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div className="space-y-12">
             {/* Contact Information */}
             <div>
+              <Slide>
               <div className="flex items-center gap-3 mb-4">
                 <MapPin className="w-6 h-6 text-primary" />
-                <h2 className="text-2xl font-bold text-gray-900">Office Address</h2>
+                <h2 className="text-2xl font-bold text-gray-900">
+                  Office Address
+                </h2>
               </div>
               <p className="text-lg text-gray-600 leading-relaxed">
                 23, Kayasthapara 3rd Lane, P.O.Haltu , Kolkata - 700078, India.
               </p>
+              </Slide>
             </div>
 
             <div>
+              <Slide>
               <div className="flex items-center gap-3 mb-4">
                 <Phone className="w-6 h-6 text-primary" />
-                <h2 className="text-2xl font-bold text-gray-900">Contact Info</h2>
+                <h2 className="text-2xl font-bold text-gray-900">
+                  Contact Info
+                </h2>
               </div>
               <div className="space-y-2 text-lg text-gray-600">
                 <p>Alka Kotecha - +91 9830166652</p>
                 <p>Office - +91 33 24840118</p>
               </div>
+              </Slide>
             </div>
 
             <div>
+              <Slide>
               <div className="flex items-center gap-3 mb-4">
                 <Mail className="w-6 h-6 text-primary" />
-                <h2 className="text-2xl font-bold text-gray-900">E-Mail Address</h2>
+                <h2 className="text-2xl font-bold text-gray-900">
+                  E-Mail Address
+                </h2>
               </div>
               <p className="text-lg text-gray-600">info@silkroute.ind.in</p>
+              </Slide>
             </div>
 
             <div>
+              <Slide>
               <div className="flex items-center gap-3 mb-4">
                 <Clock className="w-6 h-6 text-primary" />
                 <h2 className="text-2xl font-bold text-gray-900">Time Table</h2>
               </div>
+              </Slide>
               <div className="bg-white rounded-lg shadow-sm overflow-hidden">
                 <table className="min-w-full">
                   <tbody className="divide-y divide-gray-200">
@@ -61,9 +86,16 @@ export default function ContactPage() {
                       { day: "Saturday", hours: "10:00am - 19:00pm" },
                       { day: "Sunday", hours: "Closed" },
                     ].map((schedule, index) => (
-                      <tr key={schedule.day} className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}>
-                        <td className="px-6 py-4 text-sm font-medium text-gray-900">{schedule.day}</td>
-                        <td className="px-6 py-4 text-sm text-gray-600">{schedule.hours}</td>
+                      <tr
+                        key={schedule.day}
+                        className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}
+                      >
+                        <td className="px-6 py-4 text-sm font-medium text-gray-900">
+                          {schedule.day}
+                        </td>
+                        <td className="px-6 py-4 text-sm text-gray-600">
+                          {schedule.hours}
+                        </td>
                       </tr>
                     ))}
                   </tbody>
@@ -73,6 +105,7 @@ export default function ContactPage() {
           </div>
 
           {/* Map */}
+          <Slide delay={0.3}>
           <div className="h-full">
             <div className="bg-white rounded-lg shadow-sm p-1 h-full">
               <iframe
@@ -85,9 +118,9 @@ export default function ContactPage() {
               />
             </div>
           </div>
+          </Slide>
         </div>
       </div>
     </div>
-  )
+  );
 }
-

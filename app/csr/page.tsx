@@ -1,6 +1,7 @@
 "use client";
-import React, { useState } from 'react';
-import { Globe2, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useState } from "react";
+import { Globe2, X, ChevronLeft, ChevronRight, BookOpenText } from "lucide-react";
+import Slide from "@/components/Slide";
 
 interface Partner {
   id: number;
@@ -19,28 +20,28 @@ const csrImages: CSRImage[] = [
   {
     id: 1,
     url: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&auto=format&fit=crop&q=80",
-    alt: "Medical camp registration"
+    alt: "Medical camp registration",
   },
   {
     id: 2,
     url: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&auto=format&fit=crop&q=80",
-    alt: "People waiting in line"
+    alt: "People waiting in line",
   },
   {
     id: 3,
     url: "https://images.unsplash.com/photo-1576091160310-dec503adb6b3?w=800&auto=format&fit=crop&q=80",
-    alt: "Doctor consultation"
+    alt: "Doctor consultation",
   },
   {
     id: 4,
     url: "https://images.unsplash.com/photo-1576091160291-7e81c184d4d6?w=800&auto=format&fit=crop&q=80",
-    alt: "Camp entrance"
+    alt: "Camp entrance",
   },
   {
     id: 5,
     url: "https://images.unsplash.com/photo-1576091160236-73d3c4033929?w=800&auto=format&fit=crop&q=80",
-    alt: "Medical camp banner"
-  }
+    alt: "Medical camp banner",
+  },
 ];
 
 interface ImageModalProps {
@@ -54,7 +55,7 @@ function ImageModal({ image, onClose, onPrevious, onNext }: ImageModalProps) {
   if (!image) return null;
 
   return (
-    <div 
+    <div
       className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
       onClick={onClose}
     >
@@ -80,9 +81,9 @@ function ImageModal({ image, onClose, onPrevious, onNext }: ImageModalProps) {
         <ChevronRight className="w-8 h-8" />
       </button>
 
-      <div 
+      <div
         className="relative max-w-5xl w-full"
-        onClick={e => e.stopPropagation()}
+        onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
@@ -101,9 +102,16 @@ function ImageModal({ image, onClose, onPrevious, onNext }: ImageModalProps) {
   );
 }
 
-function CSRImageCard({ image, onClick }: { image: CSRImage; onClick: () => void }) {
+function CSRImageCard({
+  image,
+  onClick,
+}: {
+  image: CSRImage;
+  onClick: () => void;
+}) {
   return (
-    <div 
+    <Slide>
+    <div
       className="relative aspect-[4.5/3] rounded-lg overflow-hidden cursor-pointer group"
       onClick={onClick}
     >
@@ -114,20 +122,25 @@ function CSRImageCard({ image, onClick }: { image: CSRImage; onClick: () => void
       />
       <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
     </div>
+    </Slide>
   );
 }
 
 function CSRPage() {
-  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
+    null
+  );
 
   const handlePrevious = () => {
-    setSelectedImageIndex(current => 
-      current !== null ? (current - 1 + csrImages.length) % csrImages.length : null
+    setSelectedImageIndex((current) =>
+      current !== null
+        ? (current - 1 + csrImages.length) % csrImages.length
+        : null
     );
   };
 
   const handleNext = () => {
-    setSelectedImageIndex(current => 
+    setSelectedImageIndex((current) =>
       current !== null ? (current + 1) % csrImages.length : null
     );
   };
@@ -136,20 +149,37 @@ function CSRPage() {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
-          <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl mb-6 text-center">
-            Corporate Social Responsibility
-          </h1>
-          <p className="text-xl text-gray-600">
-          At Silkroute, corporate social responsibility is at the heart of our mission, reflecting our commitment to uplifting communities and creating a meaningful impact beyond fashion. We actively organize relief camps and social initiatives to support the underprivileged, ensuring access to essential resources and opportunities for a better future. Rooted in ethical values and sustainability, we strive to empower artisans, promote fair trade, and contribute to social welfare while maintaining our dedication to high-quality craftsmanship. By blending tradition with responsibility, we continue to build a brand that values people, the planet, and purposeful change.
-
+          <div className="flex justify-center mb-4">
+            <BookOpenText className="w-12 h-12 text-primary" />
+          </div>
+          <Slide>
+            <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl mb-6 text-center">
+              Corporate Social Responsibility
+            </h1>
+          </Slide>
+          <Slide delay={0.2}>
+          <p className="text-xl mt-2 text-gray-600">
+            At Silkroute, corporate social responsibility is at the heart of our
+            mission, reflecting our commitment to uplifting communities and
+            creating a meaningful impact beyond fashion. We actively organize
+            relief camps and social initiatives to support the underprivileged,
+            ensuring access to essential resources and opportunities for a
+            better future. Rooted in ethical values and sustainability, we
+            strive to empower artisans, promote fair trade, and contribute to
+            social welfare while maintaining our dedication to high-quality
+            craftsmanship. By blending tradition with responsibility, we
+            continue to build a brand that values people, the planet, and
+            purposeful change.
           </p>
+          </Slide>
         </div>
 
         <div className="mb-20">
+          <Slide>
           <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">
             Eye Check Up Camp
           </h2>
-          
+          </Slide>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {csrImages.map((image, index) => (
               <CSRImageCard
@@ -161,10 +191,11 @@ function CSRPage() {
           </div>
         </div>
         <div className="mb-20">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            Dudu camp
+          <Slide>
+          <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center">
+          Eye Check Up Camp And Otther Activities
           </h2>
-          
+          </Slide>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {csrImages.map((image, index) => (
               <CSRImageCard
@@ -176,10 +207,11 @@ function CSRPage() {
           </div>
         </div>
       </div>
-      
 
-      <ImageModal 
-        image={selectedImageIndex !== null ? csrImages[selectedImageIndex] : null}
+      <ImageModal
+        image={
+          selectedImageIndex !== null ? csrImages[selectedImageIndex] : null
+        }
         onClose={() => setSelectedImageIndex(null)}
         onPrevious={handlePrevious}
         onNext={handleNext}

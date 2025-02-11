@@ -1,12 +1,50 @@
 "use client"
+import { cn } from '@/lib/utils'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import React, { useState, useEffect } from 'react'
 
 type Props = {}
 
+const navLinks = [
+  {
+    title: "Home",
+    href: "/",
+  },
+  {
+    title: "About Us",
+    href: "/about",
+  },
+  {
+    title: "Collection",
+    href: "/collection",
+  },
+  {
+    title: "Services",
+    href: "/services",
+  },
+  {
+    title: "CSR",
+    href: "/csr",
+  },
+  {
+    title: "Testimonials",
+    href: "/testimonials",
+  },
+  {
+    title: "Partners",
+    href: "/partners",
+  },
+  {
+    title: "Contact Us",
+    href: "/contact",
+  },
+]
+
 const Navbar = (props: Props) => {
     const [isNavbarHidden, setIsNavbarHidden] = useState(false)
-  const [lastScrollY, setLastScrollY] = useState(0)
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const pathname = usePathname()
 
   useEffect(() => {
     const controlNavbar = () => { 
@@ -36,28 +74,33 @@ const Navbar = (props: Props) => {
         </Link>
         
         {/* Main Navigation */}
-        <div className="flex space-x-8">
-          <Link href="/about" className="text-gray-600 hover:text-black transition">About Us</Link>
-          <Link href="/collection" className="text-gray-600 hover:text-black transition">Collection</Link>
-          <Link href="/services" className="text-gray-600 hover:text-black transition"> Services</Link>
-          <Link href="/csr" className="text-gray-600 hover:text-black transition">CSR</Link>
-          <Link href="/testimonials" className="text-gray-600 hover:text-black transition">Testimonials</Link>
-          <Link href="/partners" className="text-gray-600 hover:text-black transition">Partners</Link>
-          <Link href="/contact" className="text-gray-600 hover:text-black transition">Contact Us</Link>
+        <div className="md:flex space-x-8 hidden">
+          {navLinks.map((link) => (
+          <Link key={link.title} href={link.href} className={cn("text-gray-600 hover:text-black transition", pathname === link.href && "text-black")}>
+            {link.title}
+          </Link>
+          ))}
         </div>
 
-        {/* Icons */}
-        {/* <div className="flex items-center space-x-6">
-          <button className="hover:text-gray-600 transition">
-            <Search className="h-5 w-5" />
+        {/* Mobile Navigation */}
+        <div className="flex md:hidden">
+          <button className="text-gray-600 hover:text-black transition">
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              ></path>
+            </svg>
           </button>
-          <button className="hover:text-gray-600 transition">
-            <User className="h-5 w-5" />
-          </button>
-          <button className="hover:text-gray-600 transition">
-            <ShoppingBag className="h-5 w-5" />
-          </button>
-        </div> */}
+        </div>
       </div>
     </div>
   </nav>

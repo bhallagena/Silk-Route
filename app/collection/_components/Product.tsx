@@ -4,6 +4,7 @@ import AccordionExample from "@/components/Accordion";
 import { collections, CollectionType } from "@/data";
 import { Heart, LucideLoader2 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useEffect, useMemo, useState } from "react";
 import toast from "react-hot-toast";
 
@@ -73,9 +74,11 @@ const Product = ({ id }: Props) => {
             </div>
           </div>
           <AccordionExample />
-          <button className="text-white bg-[#1e1d25] hover:bg-[#3a3941] py-4 uppercase font-bold rounded-md">
-            Enquire Now
-          </button>
+          <Link href="/contact">
+            <button className="text-white bg-[#1e1d25] hover:bg-[#3a3941] py-4 uppercase font-bold rounded-md">
+              Enquire Now
+            </button>
+          </Link>
         </div>
       </div>
     </div>

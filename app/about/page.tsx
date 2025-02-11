@@ -1,6 +1,7 @@
-
+"use client"
 import React from 'react';
-import { History, Award, Globe2, Factory } from 'lucide-react';
+import { History, Award, Globe2, Factory, BadgeInfo } from 'lucide-react';
+import Slide from '@/components/Slide';
 
 interface FeatureSection {
   id: number;
@@ -45,6 +46,7 @@ function FeatureCard({ feature, isReversed }: { feature: FeatureSection; isRever
   return (
     <div className={`flex flex-col ${isReversed ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-8 lg:gap-12 mb-20 last:mb-0`}>
       <div className="lg:w-1/2">
+      <Slide delay={0.4}>
         <div className="aspect-[4/3] rounded-2xl overflow-hidden">
           <img
             src={feature.image}
@@ -52,16 +54,21 @@ function FeatureCard({ feature, isReversed }: { feature: FeatureSection; isRever
             className="w-full h-full object-cover"
           />
         </div>
+        </Slide>
       </div>
       
       <div className="lg:w-1/2 flex flex-col justify-center">
+      <Slide>
         <div className="flex items-center gap-3 mb-4">
           {feature.icon}
           <h2 className="text-2xl font-bold text-gray-900">{feature.title}</h2>
         </div>
+        </Slide>
+        <Slide delay={0.2}>
         <p className="text-lg text-gray-600 leading-relaxed">
           {feature.content}
         </p>
+        </Slide>
       </div>
     </div>
   );
@@ -72,12 +79,19 @@ function AboutPage() {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
+        <div className="flex justify-center mb-4">
+            <BadgeInfo className="w-12 h-12 text-primary" />
+          </div>
+          <Slide>
           <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl mb-6 text-center">
             About Us
           </h1>
+          </Slide>
+          <Slide delay={0.2}>
           <p className="text-xl text-gray-600 text-center">
             Discover the story of Silkroute, where tradition meets innovation in textile craftsmanship.
           </p>
+          </Slide>
         </div>
 
         <div>

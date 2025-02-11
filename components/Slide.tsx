@@ -28,8 +28,8 @@ type props = {
         transition={{
           type: "spring",
           duration: 0.5,
-          damping: 7,
-          delay: delay ,
+          damping: 9,
+          delay: delay ?? 0,
           stiffness: 69,
         }}
         initial="hidden"

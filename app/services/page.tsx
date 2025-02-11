@@ -1,6 +1,6 @@
 "use client"
 import Slide from "@/components/Slide"
-import { Globe, HandHelping, PaintBucket, Ribbon, Stamp, VibrateIcon as Volleyball } from "lucide-react"
+import { Briefcase, Globe, HandHelping, PaintBucket, Ribbon, Stamp, Volleyball } from "lucide-react"
 import Image from "next/image"
 import styled from "styled-components"
 
@@ -51,10 +51,13 @@ const Page = (props: Props) => {
       <div className="max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8">
         <div className="relative max-w-2xl mx-auto sm:text-center">
           <div className="text-center mb-16">
+            <div className="flex justify-center mb-4">
+              <Briefcase className="w-12 h-12 text-primary" />
+              </div>
             <Slide>
             <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl">Our Services</h1>
             </Slide>
-            <Slide>
+            <Slide delay={0.2}>
             <p className="mt-4 text-xl text-gray-600">Hear directly from our satisfied customers</p>
             </Slide>
           </div>
@@ -64,7 +67,7 @@ const Page = (props: Props) => {
           <ul className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
             {features.map((item, idx) => (
               <StyledWrapper key={idx}>
-                <Slide>
+                <Slide delay={(idx * 0.1)+0.2}>
                 <div className="flip-card">
                   <div className="flip-card-inner">
                     <div className="bg-white flex flex-col items-center justify-center space-y-3 p-6 border rounded-lg flip-card-front">
@@ -77,8 +80,7 @@ const Page = (props: Props) => {
                         src={item.image || "/placeholder.svg"}
                         alt={item.title}
                         layout="fill"
-                        objectFit="cover"
-                        className="rounded-lg"
+                        className="rounded-lg object-cover"
                       />
                     </div>
                   </div>

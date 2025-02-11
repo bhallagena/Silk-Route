@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from 'react';
-import { Quote, X } from 'lucide-react';
+import { Podcast, Quote, X } from 'lucide-react';
+import Slide from '@/components/Slide';
 
 interface Testimonial {
   id: number;
@@ -68,6 +69,7 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   const [hasError, setHasError] = useState(false);
 
   return (
+    <Slide delay={0.3}>
     <div className="relative flex flex-col items-center">
       <div 
         className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-xl transition-transform duration-300 hover:scale-105 cursor-pointer"
@@ -109,6 +111,7 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
         <p className="text-sm text-gray-600">{testimonial.role}</p>
       </div>
     </div>
+    </Slide>
   );
 }
 
@@ -120,13 +123,19 @@ function page() {
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
+          <div className="flex justify-center mb-4">
+            <Podcast className="w-12 h-12 text-primary" />
+          </div>
+          <Slide>
             <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl">
               What Our Clients Say
             </h1>
+          </Slide>
+          <Slide delay={0.2}>
             <p className="mt-4 text-xl text-gray-600">
             At Silkroute, customer satisfaction is at the heart of everything we do. 
-
             </p>
+            </Slide>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">

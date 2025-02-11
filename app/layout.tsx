@@ -7,6 +7,7 @@ import ReactLenis from "lenis/react";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { Suspense } from "react";
 import { Toaster } from "react-hot-toast";
+import Banner from "@/components/Banner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,10 +38,11 @@ export default function RootLayout({
         <NuqsAdapter>
           <Suspense>
             <body
-              className={` ${golos.variable} antialiased`}
+              className={` ${golos.variable} antialiased relative`}
             >
               <Navbar />
               {children}
+              <Banner />
               <Toaster />
               <Footer />
             </body>

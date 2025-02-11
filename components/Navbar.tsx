@@ -63,7 +63,7 @@ const Navbar = (props: Props) => {
     }
   }, [lastScrollY])
   return (
-    <nav className={` fixed w-full bg-white/80 backdrop-blur-md z-50 transition-transform duration-300 ${
+    <nav className={` fixed w-full bg-white/80 backdrop-blur-md z-[90] transition-transform duration-300 ${
         isNavbarHidden ? "transform -translate-y-full" : ""
       }`}>
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

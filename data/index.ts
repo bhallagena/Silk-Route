@@ -21,9 +21,9 @@ export const collections = [
     id: 1,
     name: "Summer Breeze Dress",
     price: 299,
-    image: "/images/0A4A2401.JPG",
-    hoverImage: "/images/0A4A2402.JPG",
-    tag: "summer",
+    image: "https://firebasestorage.googleapis.com/v0/b/silk-route-9f98d.firebasestorage.app/o/1%2F0A4A1822-1.jpg?alt=media&token=1ed8617e-845e-4996-8e69-1d18fb3980a8",
+    hoverImage: "https://firebasestorage.googleapis.com/v0/b/silk-route-9f98d.firebasestorage.app/o/1%2F0A4A1826-1.jpg?alt=media&token=69fcd6fc-ab9b-454f-8930-a4350b87e1d9",
+    tag: "winter",
   },
   {
     id: 2,

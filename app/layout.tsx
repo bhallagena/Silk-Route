@@ -34,12 +34,10 @@ export default function RootLayout({
 }>) {
   return (
     <ReactLenis root>
-      <html lang="en">
+      <html lang="en" suppressHydrationWarning>
         <NuqsAdapter>
           <Suspense>
-            <body
-              className={` ${golos.variable} antialiased relative`}
-            >
+            <body className={` ${golos.variable} antialiased relative`}>
               <Navbar />
               {children}
               <Banner />

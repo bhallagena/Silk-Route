@@ -26,7 +26,7 @@ const Product = ({ id }: Props) => {
   if (!data) {
     return (
       <div className="flex justify-center items-center py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto h-screen">
-        <LucideLoader2 className="animate-spin w-5 h-5" />
+        <LucideLoader2 className="animate-spin w-10 h-10" />
       </div>
     );
   }

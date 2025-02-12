@@ -10,6 +10,8 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
+import { ShoppingCart } from "lucide-react";
+import Image from "next/image";
 
 type Props = {};
 
@@ -87,11 +89,9 @@ const Navbar = (props: Props) => {
     }
   }, []);
 
-  if (wishlist.length === 0) {
-    return null;
-  }
 
-  console.log(wishlist);
+
+  // console.log(wishlist);
 
   return (
     <nav
@@ -103,7 +103,7 @@ const Navbar = (props: Props) => {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/" className="text-2xl font-light tracking-widest">
-            SILK ROUTE
+            <Image src="/Logo-1.png" height={50} width={150} alt="company-logo"/>
           </Link>
 
           {/* Main Navigation */}
@@ -126,12 +126,12 @@ const Navbar = (props: Props) => {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <h1 className="text-gray-600 hover:text-black transition">
-                  Wishlist
+                <ShoppingCart />
                 </h1>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="relative top-7 z-[99]">
                 <ul className="space-y-2">
-                  {wishlist.map((item) => (
+                  {wishlist.length===0? <h1 className="p-3 ">No items in wishlist!</h1>  : wishlist.map((item) => (
                     <div
                       key={item.id}
                       className="flex flex-row justify-between border-b p-3 cursor-pointer"

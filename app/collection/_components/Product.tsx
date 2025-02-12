@@ -4,6 +4,7 @@ import AccordionExample from "@/components/Accordion";
 import { collections, CollectionType } from "@/data";
 import { Heart, LucideLoader2 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useEffect, useMemo, useState } from "react";
 import toast from "react-hot-toast";
 
@@ -34,12 +35,22 @@ const Product = ({ id }: Props) => {
     setLike(!like);
     if (!like) {
       localStorage.setItem(`isLiked-${data.id}`, JSON.stringify(true));
-      localStorage.setItem(`liked-products-${data.id}`, JSON.stringify(data));
-      console.log(localStorage.getItem(`isLiked-${data.id}`));
+
+      const wishlist = localStorage.getItem(`wishlist`) || null;
+
+      if (wishlist) {
+        const list = JSON.parse(wishlist);
+        list.push(data);
+        localStorage.setItem(`wishlist`, JSON.stringify(list));
+      } else {
+        localStorage.setItem(`wishlist`, JSON.stringify([data]));
+      }
+      
       toast("Added to liked products !");
     } else {
       localStorage.removeItem(`isLiked-${data.id}`);
-      localStorage.removeItem(`liked-products-${data.id}`);
+      localStorage.removeItem(`wishlist`);
+
       toast("Removed from liked products !");
     }
   };
@@ -73,9 +84,11 @@ const Product = ({ id }: Props) => {
             </div>
           </div>
           <AccordionExample />
-          <button className="text-white bg-[#1e1d25] hover:bg-[#3a3941] py-4 uppercase font-bold rounded-md">
-            Enquire Now
-          </button>
+          <Link href="/contact">
+            <button className="text-white bg-[#1e1d25] hover:bg-[#3a3941] py-4 uppercase font-bold rounded-md w-full">
+              Enquire Now
+            </button>
+          </Link>
         </div>
       </div>
     </div>

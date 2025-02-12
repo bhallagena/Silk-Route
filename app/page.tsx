@@ -1,30 +1,33 @@
 "use client"
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Recycle, Handshake, Sprout } from "lucide-react";
 import Slide from "@/components/Slide";
+import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
+import Link from "next/link";
 
 export default function Home() {
   const collectionItems = [
     {
       id: 1,
-      defaultImage: "/images/0A4A2401.JPG",
-      hoverImage: "/images/0A4A2402.JPG",
+      defaultImage: "/images/0A4A1984-3.jpg",
+      hoverImage: "/images/0A4A1981-1.jpg",
       name: "Summer Collection",
       price: 299,
     },
+    
     {
       id: 2,
-      defaultImage: "/images/0A4A2417.JPG",
-      hoverImage: "/images/0A4A2420.JPG",
-      name: "Autumn Essentials",
-      price: 349,
+      defaultImage: "/images/0A4A1888-1.jpg",
+      hoverImage: "/images/0A4A1895-1.jpg",
+      name: "Winter Elegance",
+      price: 399,
     },
     {
       id: 3,
-      defaultImage: "/images/0A4A2427.JPG",
-      hoverImage: "/images/0A4A2428.JPG",
-      name: "Winter Elegance",
-      price: 399,
+      defaultImage: "/images/0A4A2069-1.jpg",
+      hoverImage: "/images/0A4A2067-1.jpg",
+      name: "Autumn Essentials",
+      price: 349,
     },
   ];
 
@@ -45,7 +48,7 @@ export default function Home() {
             <p className="text-xl md:text-2xl tracking-wide mb-8">
               Elegance in Every Thread
             </p>
-            <button className="px-8 py-3 border-2 border-white hover:bg-white hover:text-black transition duration-300">
+            <button className="px-8 py-3 border-2 border-white hover:bg-white hover:text-black transition duration-300" onClick={() => window.open("/collection") }>
               Explore Collection
             </button>
           </div>
@@ -62,7 +65,8 @@ export default function Home() {
         <Slide>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {collectionItems.map((item) => (
-            <div key={item.id} className="group cursor-pointer">
+            <Link href={`/collection/${item.id}`} passHref  key={item.id}>
+            <div className="group relative cursor-pointer ">
               <div className="relative overflow-hidden">
                 <Image
                   src={item.defaultImage}
@@ -77,13 +81,15 @@ export default function Home() {
                   width={384}
                   height={500}
                   className="ease-in-out absolute inset-0 w-full h-[500px] object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                />
+                />               
               </div>
-              <div className="mt-4">
-                <h3 className="text-lg font-medium">{item.name}</h3>
-                <p className="mt-1">Starting from ${item.price}</p>
+              <div className="mt-6 flex flex-col items-center justify-center">
+                <h3 className="text-2xl font-semibol text-center ">{item.name}</h3>
+                {/* <p className="mt-1">Starting from ${item.price}</p> */}
+                <InteractiveHoverButton className=" mt-2 font-medium">Explore</InteractiveHoverButton>
               </div>
             </div>
+            </Link>
           ))}
         </div>
         </Slide>
@@ -105,10 +111,9 @@ export default function Home() {
                 create timeless pieces that celebrate the art of textile making.
               </p>
               </Slide>
-              <button className="flex items-center text-lg hover:space-x-4 transition-all duration-300">
-                <span>Learn More</span>
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </button>
+              <Link href="/about" passHref>
+              <InteractiveHoverButton className="font-normal"  >Learn More</InteractiveHoverButton>
+              </Link>
             </div>
             <Slide>
             <div>
@@ -123,11 +128,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Sustainability Section */}
+      {/* Services Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center max-w-3xl mx-auto">
           <Slide>
-          <h2 className="text-3xl font-light mb-6">Sustainable Fashion</h2>
+          <h2 className="text-3xl font-light mb-6">Our Services</h2>
           </Slide>
           <Slide>
           <p className="mb-12">
@@ -139,16 +144,15 @@ export default function Home() {
         </div>
         <Slide>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {["Organic Materials", "Ethical Production", "Zero Waste"].map(
-            (item) => (
-              <div key={item} className="text-center">
-                <div className="w-16 h-16 mx-auto mb-6 bg-gray-100 rounded-full flex items-center justify-center">
-                  <ArrowRight className="h-8 w-8" />
+          {[{name: "Organic Materials", desc: "We source only the finest, ethically harvested fibers, transformed through our exquisite hand-weaving, printing, dyeing, embroidery, and hand painting techniques, ensuring every piece reflects true beauty.", icon: <Sprout className="h-8 w-8" />}, {name: "Ethical Production", desc: "Our artisans craft each piece under fair conditions, backed by prompt communication and robust in-house quality checks that guarantee exceptional standards from start to finish.", icon: <Handshake className="h-8 w-8" />}, {name: "Zero Waste", desc: "By meticulously repurposing every material remnant through innovative techniques, we ensure that our production of timeless scarves and garments not only delights our customers but also champions sustainability.", icon: <Recycle className="h-8 w-8" />}].map(
+            (item, index) => (
+              <div key={index} className="text-center">
+                <div className="w-16 h-16 mx-auto mb-6 bg-gray-100 text-primary rounded-full flex items-center justify-center">
+                  {item.icon}
                 </div>
-                <h3 className="text-xl font-medium mb-4">{item}</h3>
+                <h3 className="text-xl font-medium mb-4">{item.name}</h3>
                 <p className="text-gray-600">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  do eiusmod tempor incididunt ut labore.
+                  {item.desc}
                 </p>
               </div>
             )

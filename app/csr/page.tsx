@@ -19,29 +19,52 @@ interface CSRImage {
 const csrImages: CSRImage[] = [
   {
     id: 1,
-    url: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&auto=format&fit=crop&q=80",
+    url: "/csr/1.jpg",
     alt: "Medical camp registration",
   },
   {
     id: 2,
-    url: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&auto=format&fit=crop&q=80",
+    url: "/csr/2.jpg",
     alt: "People waiting in line",
   },
   {
     id: 3,
-    url: "https://images.unsplash.com/photo-1576091160310-dec503adb6b3?w=800&auto=format&fit=crop&q=80",
+    url: "/csr/3.jpg",
     alt: "Doctor consultation",
   },
   {
     id: 4,
-    url: "https://images.unsplash.com/photo-1576091160291-7e81c184d4d6?w=800&auto=format&fit=crop&q=80",
+    url: "/csr/4.jpg",
     alt: "Camp entrance",
   },
   {
     id: 5,
-    url: "https://images.unsplash.com/photo-1576091160236-73d3c4033929?w=800&auto=format&fit=crop&q=80",
+    url: "/csr/5.jpg",
     alt: "Medical camp banner",
   },
+];
+const csrImages2: CSRImage[] = [
+  {
+    id: 1,
+    url: "/csr/6.jpg",
+    alt: "Medical camp registration",
+  },
+  {
+    id: 2,
+    url: "/csr/7.jpg",
+    alt: "People waiting in line",
+  },
+  {
+    id: 3,
+    url: "/csr/8.jpg",
+    alt: "Doctor consultation",
+  },
+  {
+    id: 4,
+    url: "/csr/9.jpg",
+    alt: "Camp entrance",
+  },
+ 
 ];
 
 interface ImageModalProps {
@@ -197,7 +220,7 @@ function CSRPage() {
           </h2>
           </Slide>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {csrImages.map((image, index) => (
+            {csrImages2.map((image, index) => (
               <CSRImageCard
                 key={image.id}
                 image={image}

@@ -49,7 +49,7 @@ const Page = (props: Props) => {
   return (
     <section className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8">
-        <div className="relative max-w-2xl mx-auto sm:text-center">
+        <div className="relative max-w-5xl mx-auto sm:text-center">
           <div className="text-center mb-16">
             <div className="flex justify-center mb-4">
               <Briefcase className="w-12 h-12 text-primary" />

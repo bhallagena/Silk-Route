@@ -11,37 +11,37 @@ const Page = (props: Props) => {
     {
       icon: <Globe />,
       title: "Sourcing",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec congue, nisl eget molestie varius.",
+      desc: "We meticulously select premium raw materials, including natural fibers like wool, silk, cotton, and linen, to uphold our commitment to excellence.",
       image: "/services/1.jpg",
     },
     {
       icon: <HandHelping />,
       title: "Hand Skills",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec congue, nisl eget molestie varius.",
+      desc: "Our skilled artisans specialize in handloom weaving, intricate hand embroidery, block printing, screen printing, hand painting, digital printing, and hand tie and dye.",
       image: "/services/2.jpg",
     },
     {
       icon: <Stamp />,
       title: "Printing",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec congue, nisl eget molestie varius.",
+      desc: "Specializing in screen printing, block printing, and digital printing, we craft intricate, high-quality designs that enhance scarves and garments with fine detailing and lasting durability.",
       image: "/services/3.jpg",
     },
     {
       icon: <Ribbon />,
       title: "Weaving",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec congue, nisl eget molestie varius.",
+      desc: "Our skilled artisans meticulously weave each piece, ensuring superior texture, durability, and intricate detailing that reflect the rich textile heritage of India.",
       image: "/services/4.jpg",
     },
     {
       icon: <Volleyball />,
       title: "Embroidery",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec congue, nisl eget molestie varius.",
+      desc: "Meticulously crafted by skilled artisans, our embroidery techniques range from intricate threadwork to exquisite embellishments, adding depth, texture, and sophistication.",
       image: "/services/5.jpg",
     },
     {
       icon: <PaintBucket />,
       title: "Dyeing",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec congue, nisl eget molestie varius.",
+      desc: " Specializing in hand tie and dye and precision color application, we transform high-quality fabrics into stunning scarves and garments that exude elegance and sustainability.",
       image: "/services/6.jpg",
     },
   ]
@@ -58,7 +58,7 @@ const Page = (props: Props) => {
             <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl">Our Services</h1>
             </Slide>
             <Slide delay={0.2}>
-            <p className="mt-4 text-xl text-gray-600">Hear directly from our satisfied customers</p>
+            <p className="mt-4 text-xl text-gray-600">Our skilled artisans ensure every piece reflects our rich cultural heritage and commitment to excellence through rigorous quality control and meticulous attention to detail</p>
             </Slide>
           </div>
           <div className="absolute inset-0 max-w-xs mx-auto h-44 blur-[118px]"></div>

@@ -45,12 +45,23 @@ const Product = ({ id }: Props) => {
       } else {
         localStorage.setItem(`wishlist`, JSON.stringify([data]));
       }
-      
+
       toast("Added to liked products !");
     } else {
       localStorage.removeItem(`isLiked-${data.id}`);
-      localStorage.removeItem(`wishlist`);
 
+      const wishlist = localStorage.getItem(`wishlist`);
+
+      if (wishlist) {
+        const list = JSON.parse(wishlist) as CollectionType[];
+        const updatedList = list.filter((item) => item.id !== data.id);
+        if (updatedList.length > 0) {
+          localStorage.setItem(`wishlist`, JSON.stringify(updatedList));
+        } else {
+          localStorage.removeItem(`wishlist`);
+        }
+      }
+      
       toast("Removed from liked products !");
     }
   };
@@ -59,12 +70,16 @@ const Product = ({ id }: Props) => {
     <div className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto ">
       <div className="flex flex-col md:flex-row md:justify-center gap-20">
         <div className="relative overflow-hidden group cursor-pointer w-96 h-full rounded-md">
-          <img
+          <Image
+            width={500}
+            height={500}
             src={data.image}
             alt={data.name}
             className="w-full h-[500px] object-cover transition-opacity duration-500 group-hover:opacity-0"
           />
-          <img
+          <Image
+            width={500}
+            height={500}
             src={data.hoverImage}
             alt={`${data.name} Alternate View`}
             className="absolute inset-0 w-full h-[500px] object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
@@ -73,8 +88,7 @@ const Product = ({ id }: Props) => {
         <div className="flex flex-col gap-10">
           <div className="flex flex-row justify-between items-start gap-32">
             <div>
-              <h3 className="text-3xl font-bold">{data.name}</h3>
-              <p className="mt-5">Starting from ${data.price}</p>
+              <h3 className="text-3xl font-bold">{data.id}</h3>
             </div>
             <div>
               <Heart

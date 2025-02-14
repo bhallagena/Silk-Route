@@ -1,10 +1,99 @@
 "use client"
 import Slide from "@/components/Slide"
-import { Briefcase, Globe, HandHelping, PaintBucket, Ribbon, Stamp, Volleyball } from "lucide-react"
+import { Briefcase, ChevronLeft, ChevronRight, Globe, HandHelping, PaintBucket, Ribbon, Stamp, Volleyball, X } from "lucide-react"
 import Image from "next/image"
+import { useState } from "react"
 import styled from "styled-components"
 
 type Props = {}
+
+interface CSRImage {
+  id: number;
+  url: string;
+  alt: string;
+}
+
+interface ImageModalProps {
+  image: CSRImage | null;
+  onClose: () => void;
+  onPrevious: () => void;
+  onNext: () => void;
+}
+
+function ImageModal({ image, onClose, onPrevious, onNext }: ImageModalProps) {
+  if (!image) return null;
+
+  return (
+    <div
+      className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
+      onClick={onClose}
+    >
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          onPrevious();
+        }}
+        className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors p-2"
+        aria-label="Previous image"
+      >
+        <ChevronLeft className="w-8 h-8" />
+      </button>
+
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          onNext();
+        }}
+        className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors p-2"
+        aria-label="Next image"
+      >
+        <ChevronRight className="w-8 h-8" />
+      </button>
+
+      <div
+        className="relative max-w-5xl w-full"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors"
+          aria-label="Close modal"
+        >
+          <X className="w-8 h-8" />
+        </button>
+        <img
+          src={image.url}
+          alt={image.alt}
+          className="w-full h-auto rounded-lg"
+        />
+      </div>
+    </div>
+  );
+}
+
+function CSRImageCard({
+  image,
+  onClick,
+}: {
+  image: CSRImage;
+  onClick: () => void;
+}) {
+  return (
+    <Slide>
+    <div
+      className="relative aspect-[4.5/3] rounded-lg overflow-hidden cursor-pointer group"
+      onClick={onClick}
+    >
+      <img
+        src={image.url}
+        alt={image.alt}
+        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+      />
+      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
+    </div>
+    </Slide>
+  );
+}
 
 const Page = (props: Props) => {
   const features = [
@@ -45,6 +134,72 @@ const Page = (props: Props) => {
       image: "/services/6.jpg",
     },
   ]
+
+  const factory = [{
+    id: 1,
+    url: "/services/7.jpg",
+    alt: "Medical camp registration",
+  },
+  {
+    id: 2,
+    url: "/services/8.jpg",
+    alt: "People waiting in line",
+  },
+  {
+    id: 3,
+    url: "/services/9.jpg",
+    alt: "Doctor consultation",
+  },
+  {
+    id: 4,
+    url: "/services/10.jpg",
+    alt: "Camp entrance",
+  },
+  {
+    id: 5,
+    url: "/services/11.jpg",
+    alt: "Medical camp banner",
+  },
+];
+const csrImages2: CSRImage[] = [
+  {
+    id: 1,
+    url: "/csr/6.jpg",
+    alt: "Medical camp registration",
+  },
+  {
+    id: 2,
+    url: "/csr/7.jpg",
+    alt: "People waiting in line",
+  },
+  {
+    id: 3,
+    url: "/csr/8.jpg",
+    alt: "Doctor consultation",
+  },
+  {
+    id: 4,
+    url: "/csr/9.jpg",
+    alt: "Camp entrance",
+  },
+]
+   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
+      null
+    );
+  
+    const handlePrevious = () => {
+      setSelectedImageIndex((current) =>
+        current !== null
+          ? (current - 1 + factory.length) % factory.length
+          : null
+      );
+    };
+  
+    const handleNext = () => {
+      setSelectedImageIndex((current) =>
+        current !== null ? (current + 1) % factory.length : null
+      );
+    };
 
   return (
     <section className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-20 px-4 sm:px-6 lg:px-8">
@@ -91,6 +246,31 @@ const Page = (props: Props) => {
           </ul>
         </div>
       </div>
+
+      <div className="mb-20 mt-16">
+                <Slide>
+                <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">
+                  Factory Overview
+                </h2>
+                </Slide>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {factory.map((image, index) => (
+                    <CSRImageCard
+                      key={image.id}
+                      image={image}
+                      onClick={() => setSelectedImageIndex(index)}
+                    />
+                  ))}
+                </div>
+              </div>
+              <ImageModal
+        image={
+          selectedImageIndex !== null ? factory[selectedImageIndex] : null
+        }
+        onClose={() => setSelectedImageIndex(null)}
+        onPrevious={handlePrevious}
+        onNext={handleNext}
+      />
     </section>
   )
 }

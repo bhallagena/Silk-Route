@@ -8,6 +8,7 @@ import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { Suspense } from "react";
 import { Toaster } from "react-hot-toast";
 import Banner from "@/components/Banner";
+import Preloader from "./loading";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,7 +37,7 @@ export default function RootLayout({
     <ReactLenis root>
       <html lang="en" suppressHydrationWarning>
         <NuqsAdapter>
-          <Suspense>
+          <Suspense fallback={<Preloader/>}>
             <body className={` ${golos.variable} antialiased relative`}>
               <Navbar />
               {children}

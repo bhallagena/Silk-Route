@@ -4,6 +4,9 @@ import { ArrowRight, Recycle, Handshake, Sprout } from "lucide-react";
 import Slide from "@/components/Slide";
 import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import Preloader from '@/components/Preloader';
+import { AnimatePresence } from "framer-motion";
 
 export default function Home() {
   const collectionItems = [
@@ -30,8 +33,34 @@ export default function Home() {
       price: 349,
     },
   ];
+  const [isLoading, setIsLoading] = useState(true);
+
+  
+
+    useEffect( () => {
+
+      (
+
+        async () => {
+            setTimeout( () => {
+
+              setIsLoading(false);
+
+              document.body.style.cursor = 'default'
+
+              window.scrollTo(0,0);
+
+            }, 5000)
+
+        }
+
+      )()
+
+    }, [])
 
   return (
+    <AnimatePresence mode='wait'>
+       {isLoading && <Preloader key="1" />}
     <div className="min-h-screen bg-white">
       <section className="h-screen relative overflow-hidden">
         {/* <img
@@ -278,5 +307,6 @@ export default function Home() {
         </Slide>
       </section>
     </div>
+    </AnimatePresence>
   );
 }

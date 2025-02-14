@@ -59,9 +59,13 @@ export default function Home() {
     }, [])
 
   return (
-    <AnimatePresence mode='wait'>
-       {isLoading && <Preloader key="1" />}
+       
     <div className="min-h-screen bg-white">
+    
+
+    <AnimatePresence mode="sync">
+    {isLoading && <Preloader key="1" />}
+    </AnimatePresence>
       <section className="h-screen relative overflow-hidden">
         {/* <img
           src="/111.jpg"
@@ -307,6 +311,5 @@ export default function Home() {
         </Slide>
       </section>
     </div>
-    </AnimatePresence>
   );
 }

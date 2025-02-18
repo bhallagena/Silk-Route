@@ -5,7 +5,7 @@ import { collections, CollectionType } from "@/data";
 import { Heart, LucideLoader2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 interface Props {

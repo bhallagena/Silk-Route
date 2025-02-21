@@ -17,7 +17,7 @@ const features: FeatureSection[] = [
     title: "About Silkroute",
     content: "Founded in 2004 in West Bengal, India, Silkroute is a premier export house renowned for its exquisite handcrafted textiles. We expertly blend traditional craftsmanship with modern design sensibilities, specializing in handloom weaving, hand embroidery, screen printing, hand painting, block printing, digital printing, and hand tie and dye to create timeless scarves and garments.",
     icon: <History className="w-6 h-6 text-primary" />,
-    image: "https://images.unsplash.com/photo-1606722590583-6951b5ea92ad?w=800&auto=format&fit=crop&q=80"
+    image: "https://firebasestorage.googleapis.com/v0/b/silk-route-9f98d.firebasestorage.app/o/about%2FWhatsApp%20Image%202025-02-22%20at%2001.40.05.jpeg?alt=media&token=06290b34-f79c-4f2a-88cc-227f2811491e"
   },
   {
     id: 2,
@@ -31,7 +31,7 @@ const features: FeatureSection[] = [
     title: "A Reliable Export House Putting Customers First",
     content: "With an impressive annual export of 50,000 pieces to over 10 countries, Silkroute stands as a beacon of reliability and customer-centric service. We prioritize our clients' needs by delivering exceptional quality and prompt service, ensuring every partnership is built on trust and excellence.",
     icon: <Globe2 className="w-6 h-6 text-primary" />,
-    image: "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=800&auto=format&fit=crop&q=80"
+    image: "https://firebasestorage.googleapis.com/v0/b/silk-route-9f98d.firebasestorage.app/o/about%2FWORLD%20MAP%20final.png?alt=media&token=405aa5ac-9e4a-49a9-9a4e-d3f9b9a8703e"
   },
   {
     id: 4,

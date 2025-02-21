@@ -50,7 +50,7 @@ export default function Home() {
 
               window.scrollTo(0,0);
 
-            }, 5000)
+            }, 3250)
 
         }
 
@@ -178,7 +178,7 @@ export default function Home() {
             <Slide>
               <div>
                 <img
-                  src="https://images.unsplash.com/photo-1486299267070-83823f5448dd?auto=format&fit=crop&q=80"
+                  src="https://firebasestorage.googleapis.com/v0/b/silk-route-9f98d.firebasestorage.app/o/about%2FWORLD%20MAP%20final.png?alt=media&token=405aa5ac-9e4a-49a9-9a4e-d3f9b9a8703e"
                   alt="About"
                   className="w-full h-[600px] object-cover"
                 />

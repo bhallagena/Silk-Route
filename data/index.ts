@@ -16,6 +16,15 @@ export const carddata = [
   },
 ]
 
+export interface CollectionType {
+  id: number;
+  name: string;
+  price: number;
+  image: string;
+  hoverImage: string;
+  tag: string;
+}
+
 export const collections = [
   {
     id: 1,
@@ -98,15 +107,6 @@ export const collections = [
     tag: "winter",
   },
 ];
-
-export interface CollectionType {
-  id: number;
-  name: string;
-  price: number;
-  image: string;
-  hoverImage: string;
-  tag: string;
-}
 
 export const accordionItems = [
   {

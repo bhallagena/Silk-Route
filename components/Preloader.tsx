@@ -9,7 +9,7 @@ import { motion } from 'framer-motion';
 
 
 
-const words = ["Hello", "Hola", "Bonjour", "Hallo", "Ciao", "Olá", "你好", "こんにちは", "안녕하세요", "হ্যালো", "مرحبا", "Merhaba", "नमस्ते"]
+const words = ["Hello", "Hola", "Bonjour",  "Ciao", "Olá", "你好", "こんにちは", "안녕하세요",  "مرحبا",  "नमस्ते"]
 
 
 
@@ -74,7 +74,7 @@ export default function Index() {
 
             setIndex(index + 1)
 
-        }, index == 0 ? 2000 : 250)
+        }, index == 0 ? 1500 : 200)
 
     }, [index])
 

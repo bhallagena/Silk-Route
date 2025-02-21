@@ -7,10 +7,10 @@ type Props = {};
 const Footer = (props: Props) => {
   return (
     <div 
-    className='relative h-[480px]'
+    className='relative lg:h-[480px]'
     style={{clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)"}}
   >
-    <div className='fixed bottom-0  w-full'>
+    <div className='lg:fixed lg:bottom-0  w-full'>
     <footer className="bg-black text-white pt-12 pb-6">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">

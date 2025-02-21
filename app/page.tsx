@@ -5,8 +5,9 @@ import Slide from "@/components/Slide";
 import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import Preloader from '@/components/Preloader';
+import Preloader from "@/components/Preloader";
 import { AnimatePresence } from "framer-motion";
+import { Marquee } from "@/components/magicui/marquee";
 
 export default function Home() {
   const collectionItems = [
@@ -15,7 +16,6 @@ export default function Home() {
       defaultImage: "/images/0A4A1984-3.jpg",
       hoverImage: "/images/0A4A1981-1.jpg",
       name: "Summer Collection",
-      price: 299,
     },
 
     {
@@ -23,49 +23,51 @@ export default function Home() {
       defaultImage: "/images/0A4A1888-1.jpg",
       hoverImage: "/images/0A4A1895-1.jpg",
       name: "Winter Elegance",
-      price: 399,
     },
     {
       id: 3,
       defaultImage: "/images/0A4A2069-1.jpg",
       hoverImage: "/images/0A4A2067-1.jpg",
       name: "Autumn Essentials",
-      price: 349,
     },
+  ];
+  const logoSources = [
+    "/logo/1.png",
+    "/logo/2.svg",
+    "/logo/3.svg",
+    "/logo/4.svg",
+    "/logo/5.svg",
+    "/logo/6.svg",
+    "/logo/7.svg",
+    "/logo/8.svg",
+    "/logo/9.png",
+    "/logo/10.svg",
+    "/logo/11.avif",
+    "/logo/12.png",
+    "/logo/13.png",
+    "/logo/14.png",
+    "/logo/15.png",
+    "/logo/16.webp",
   ];
   const [isLoading, setIsLoading] = useState(true);
 
-  
+  useEffect(() => {
+    (async () => {
+      setTimeout(() => {
+        setIsLoading(false);
 
-    useEffect( () => {
+        document.body.style.cursor = "default";
 
-      (
-
-        async () => {
-            setTimeout( () => {
-
-              setIsLoading(false);
-
-              document.body.style.cursor = 'default'
-
-              window.scrollTo(0,0);
-
-            }, 3250)
-
-        }
-
-      )()
-
-    }, [])
+        window.scrollTo(0, 0);
+      }, 3250);
+    })();
+  }, []);
 
   return (
-       
     <div className="min-h-screen bg-white">
-    
-
-    <AnimatePresence mode="sync">
-    {isLoading && <Preloader key="1" />}
-    </AnimatePresence>
+      <AnimatePresence mode="sync">
+        {isLoading && <Preloader key="1" />}
+      </AnimatePresence>
       <section className="h-screen relative overflow-hidden">
         {/* <img
           src="/111.jpg"
@@ -73,7 +75,7 @@ export default function Home() {
           className="absolute inset-0 w-full h-full object-cover"
         /> */}
         <video
-        key="background-video"
+          key="background-video"
           autoPlay
           loop
           muted
@@ -82,8 +84,8 @@ export default function Home() {
           poster="/111.jpg"
           className="absolute w-full h-full object-cover"
           onError={(e) => {
-            const target = e.target as HTMLVideoElement
-            target.style.display = "none"
+            const target = e.target as HTMLVideoElement;
+            target.style.display = "none";
           }}
         >
           <source src="/videos/silkroute-landing.mp4" type="video/mp4" />
@@ -233,7 +235,7 @@ export default function Home() {
         </Slide>
       </section>
 
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 pb-40">
         <div className="text-center max-w-2xl mx-auto flex flex-col items-center justify-center">
           <Slide>
             <h2 className="text-3xl font-light mb-6">Our Partners</h2>
@@ -246,28 +248,28 @@ export default function Home() {
         </div>
         <Slide>
           <div
-            className="flex overflow-hidden h-auto max-w-full bg-[linear-gradient(to right, rgba(255, 255, 255, 0), white)]"
+            className="relative flex w-full flex-col items-center justify-center overflow-hidden"
             style={{ userSelect: "none" }}
           >
-            <div className="flex flex-shrink-0 items-center animate-slider justify-around whitespace-nowrap w-full">
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((img) => (
-                <div key={img} className="grid place-items-center ">
+            <Marquee pauseOnHover className="[--duration:50s]">
+              {logoSources.map((img, index) => (
+                <div key={index} className="grid place-items-center">
                   <Image
-                    src={`/logos/${img}.jpg`}
-                    height={69}
+                    src={img}
+                    height={50}
                     width={100}
                     alt="logo"
                     className=" mx-12 object-contain"
                   />
                 </div>
               ))}
-            </div>
+            </Marquee>
 
-            <div className="flex flex-shrink-0 items-center animate-slider justify-around whitespace-nowrap w-full">
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((img) => (
-                <div key={img} className="grid place-items-center">
+            <Marquee reverse pauseOnHover className="[--duration:50s]">
+              {logoSources.map((img, index) => (
+                <div key={index} className="grid place-items-center">
                   <Image
-                    src={`/logos/${img}.jpg`}
+                    src={img}
                     height={50}
                     width={100}
                     alt="logo"
@@ -275,38 +277,9 @@ export default function Home() {
                   />
                 </div>
               ))}
-            </div>
-          </div>
-          <div
-            className="flex overflow-hidden h-auto mt-10 max-w-full"
-            style={{ userSelect: "none" }}
-          >
-            <div className="flex flex-shrink-0 items-center animate-slidee justify-around whitespace-nowrap w-full">
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((img) => (
-                <div key={img} className="grid place-items-center ">
-                  <Image
-                    src={`/logos/${img}.jpg`}
-                    height={69}
-                    width={100}
-                    alt="logo"
-                    className=" mx-12 object-contain"
-                  />
-                </div>
-              ))}
-            </div>
-            <div className="flex flex-shrink-0 items-center animate-slidee justify-around whitespace-nowrap w-full">
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((img) => (
-                <div key={img} className="grid place-items-center">
-                  <Image
-                    src={`/logos/${img}.jpg`}
-                    height={50}
-                    width={100}
-                    alt="logo"
-                    className=" mx-12 object-contain"
-                  />
-                </div>
-              ))}
-            </div>
+            </Marquee>
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-1/5 bg-gradient-to-r from-white"></div>
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-1/5 bg-gradient-to-l from-white"></div>
           </div>
         </Slide>
       </section>

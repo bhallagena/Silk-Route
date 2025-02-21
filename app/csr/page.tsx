@@ -199,7 +199,7 @@ function CSRPage() {
 
         <div className="mb-20">
           <Slide>
-          <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
             Eye Check Up Camp
           </h2>
           </Slide>
@@ -215,7 +215,7 @@ function CSRPage() {
         </div>
         <div className="mb-20">
           <Slide>
-          <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
           Eye Check Up Camp And Otther Activities
           </h2>
           </Slide>

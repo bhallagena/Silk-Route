@@ -123,11 +123,11 @@ function page() {
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-          <div className="flex justify-center mb-4">
+          <div className="flex justify-center mt-2 mb-4">
             <Podcast className="w-12 h-12 text-primary" />
           </div>
           <Slide>
-            <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl">
+            <h1 className="text-3xl font-bold text-gray-900 sm:text-5xl">
               What Our Clients Say
             </h1>
           </Slide>

@@ -206,7 +206,7 @@ const csrImages2: CSRImage[] = [
       <div className="max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8">
         <div className="relative max-w-5xl mx-auto sm:text-center">
           <div className="text-center mb-16">
-            <div className="flex justify-center mb-4">
+            <div className="flex justify-center mt-2 mb-4">
               <Briefcase className="w-12 h-12 text-primary" />
               </div>
             <Slide>

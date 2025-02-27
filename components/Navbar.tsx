@@ -1,17 +1,13 @@
 "use client";
+
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState, useEffect } from "react";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuSubTrigger,
-  DropdownMenuTrigger,
-} from "./ui/dropdown-menu";
 import { ShoppingCart } from "lucide-react";
 import Image from "next/image";
+import Sidebar from "./Sidebar";
 
 type Props = {};
 
@@ -53,6 +49,7 @@ const navLinks = [
 const Navbar = (props: Props) => {
   const [isNavbarHidden, setIsNavbarHidden] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
   const [wishlist, setWishlist] = useState<
     {
       id: string;
@@ -125,7 +122,7 @@ const Navbar = (props: Props) => {
             ))}
           </div>
 
-          <div className="cursor-pointer">
+          <div className="cursor-pointer md:block hidden">
             <Popover>
               <PopoverTrigger asChild>
                 <h1 className="text-gray-600 hover:text-black transition">
@@ -160,8 +157,45 @@ const Navbar = (props: Props) => {
           </div>
 
           {/* Mobile Navigation */}
-          <div className="flex md:hidden">
-            <button className="text-gray-600 hover:text-black transition">
+          <div className="flex md:hidden gap-5">
+            <div className="cursor-pointer">
+              <Popover>
+                <PopoverTrigger asChild>
+                  <h1 className="text-gray-600 hover:text-black transition">
+                    <ShoppingCart />
+                  </h1>
+                </PopoverTrigger>
+                <PopoverContent className="relative top-7 right-1 z-[99]">
+                  <ul className="space-y-2">
+                    {wishlist.length === 0 ? (
+                      <h1 className="p-3 ">No items in wishlist!</h1>
+                    ) : (
+                      wishlist.map((item) => (
+                        <div
+                          key={item.id}
+                          className="flex flex-row justify-between border-b p-3 cursor-pointer"
+                          onClick={() =>
+                            (window.location.href = `/collection/${item.id}`)
+                          }
+                        >
+                          <img
+                            src={item.image}
+                            alt={item.id}
+                            className="w-14 h-14 rounded-md"
+                          />
+                          <h1>{item.id}</h1>
+                        </div>
+                      ))
+                    )}
+                  </ul>
+                </PopoverContent>
+              </Popover>
+            </div>
+
+            <button
+              className="text-gray-600 hover:text-black transition"
+              onClick={() => setIsOpen(true)}
+            >
               <svg
                 className="w-6 h-6"
                 fill="none"
@@ -178,6 +212,8 @@ const Navbar = (props: Props) => {
               </svg>
             </button>
           </div>
+
+          {isOpen && <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />}
         </div>
       </div>
     </nav>

@@ -10,11 +10,11 @@ interface Props {
 const CollectionHeader = ({ setSelectedTag, selectedTag }: Props) => {
   return (
     <div className="text-center mb-16 ">
-      <div className="flex justify-center mb-4">
+      <div className="flex justify-center mt-2 mb-4">
               <Shirt className="w-12 h-12 text-primary" />
               </div>
             <Slide>
-            <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl">Our Collection</h1>
+            <h1 className="text-3xl font-bold text-gray-900">Our Collection</h1>
             </Slide>
             <Slide delay={0.2}>
             <p className="mt-4 text-xl text-gray-600">Discover our seasonal collections crafted with precision and care</p>

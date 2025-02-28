@@ -17,7 +17,7 @@ const CollectionHeader = ({ setSelectedTag, selectedTag }: Props) => {
             <h1 className="text-3xl font-bold text-gray-900">Our Collection</h1>
             </Slide>
             <Slide delay={0.2}>
-            <p className="mt-4 text-xl text-gray-600">Discover our seasonal collections crafted with precision and care</p>
+            <p className="mt-4 text-lg text-gray-600">Discover our seasonal collections crafted with precision and care</p>
             </Slide>
 
       {/* Filter Tags */}

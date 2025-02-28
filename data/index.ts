@@ -1,20 +1,20 @@
-export const carddata = [
-  {
-    name: "Card 1",
-    description: "This is the first card",
-    image: ["/images/0A4A2401.JPG", "/images/0A4A2402.JPG", "/images/0A4A2403.JPG"],
-  },
-  {
-    name: "Card 2",
-    description: "This is the second card",
-    image: ["images/0A4A2417.JPG", "/images/0A4A2418.JPG", "/images/0A4A2420.JPG"],
-  },
-  {
-    name: "Card 3",
-    description: "This is the third card",
-    image: ["images/0A4A2427.JPG", "/images/0A4A2428.JPG", "/images/0A4A2429.JPG"],
-  },
-]
+// export const carddata = [
+//   {
+//     name: "Card 1",
+//     description: "This is the first card",
+//     image: ["/images/0A4A2401.JPG", "/images/0A4A2402.JPG", "/images/0A4A2403.JPG"],
+//   },
+//   {
+//     name: "Card 2",
+//     description: "This is the second card",
+//     image: ["images/0A4A2417.JPG", "/images/0A4A2418.JPG", "/images/0A4A2420.JPG"],
+//   },
+//   {
+//     name: "Card 3",
+//     description: "This is the third card",
+//     image: ["images/0A4A2427.JPG", "/images/0A4A2428.JPG", "/images/0A4A2429.JPG"],
+//   },
+// ]
 
 export interface CollectionType {
   id: number;
@@ -422,6 +422,7 @@ export const collections = [
     image: "https://firebasestorage.googleapis.com/v0/b/silk-route-9f98d.firebasestorage.app/o/50%2F0A4A2212-1.jpg?alt=media&token=34f5da76-1b6f-457e-ad14-4c1849d8d1dd",
     hoverImage: "https://firebasestorage.googleapis.com/v0/b/silk-route-9f98d.firebasestorage.app/o/50%2F0A4A2214-1.jpg?alt=media&token=85ce45f1-913e-439b-acec-08848b90fd7d",
     tag: "winter",
+    desc: "This is a description",
   }
 ];
 

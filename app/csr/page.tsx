@@ -176,12 +176,12 @@ function CSRPage() {
             <BookOpenText className="w-12 h-12 text-primary" />
           </div>
           <Slide>
-            <h1 className="text-3xl font-bold text-gray-900 sm:text-5xl mb-6 text-center">
+            <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl mb-6 text-center">
               Corporate Social Responsibility
             </h1>
           </Slide>
           <Slide delay={0.2}>
-          <p className="text-xl mt-2 text-gray-600">
+          <p className="text-lg mt-2 text-gray-600">
             At Silkroute, corporate social responsibility is at the heart of our
             mission, reflecting our commitment to uplifting communities and
             creating a meaningful impact beyond fashion. We actively organize
@@ -216,7 +216,7 @@ function CSRPage() {
         <div className="mb-20">
           <Slide>
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-          Eye Check Up Camp And Otther Activities
+           Other Activities
           </h2>
           </Slide>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -15,13 +15,13 @@ const testimonials: Testimonial[] = [
     id: 1,
     name: "Sarah Johnson",
     role: "Marketing Director",
-    videoUrl: "/videos/1.mp4"
+    videoUrl: "https://firebasestorage.googleapis.com/v0/b/silk-route-9f98d.firebasestorage.app/o/1.mp4?alt=media&token=edede8e3-bb1a-4e7e-9709-7087bb5591d5"
   },
   {
     id: 2,
     name: "Michael Chen",
     role: "Tech Entrepreneur",
-    videoUrl: "/videos/2.mp4"
+    videoUrl: "https://firebasestorage.googleapis.com/v0/b/silk-route-9f98d.firebasestorage.app/o/2.mp4?alt=media&token=b29cb3c3-6d51-4371-a2ae-928c8b3b6c12"
   }
 ];
 
@@ -55,10 +55,10 @@ function VideoModal({ video, onClose }: VideoModalProps) {
             playsInline
           />
         </div>
-        <div className="mt-4 text-center">
+        {/* <div className="mt-4 text-center">
           <h3 className="text-xl font-semibold text-white">{video.name}</h3>
           <p className="text-gray-300">{video.role}</p>
-        </div>
+        </div> */}
       </div>
     </div>
   );
@@ -106,10 +106,10 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
           </div>
         )}
       </div>
-      <div className="mt-4 text-center">
+      {/* <div className="mt-4 text-center">
         <h3 className="text-lg font-semibold text-gray-900">{testimonial.name}</h3>
         <p className="text-sm text-gray-600">{testimonial.role}</p>
-      </div>
+      </div> */}
     </div>
     </Slide>
   );
@@ -127,12 +127,12 @@ function page() {
             <Podcast className="w-12 h-12 text-primary" />
           </div>
           <Slide>
-            <h1 className="text-3xl font-bold text-gray-900 sm:text-5xl">
+            <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl">
               What Our Clients Say
             </h1>
           </Slide>
           <Slide delay={0.2}>
-            <p className="mt-4 text-xl text-gray-600">
+            <p className="mt-4 text-lg text-gray-600">
             At Silkroute, customer satisfaction is at the heart of everything we do. 
             </p>
             </Slide>

@@ -170,12 +170,12 @@ function page() {
             <Globe2 className="w-12 h-12 text-primary" />
           </div>
           <Slide>
-            <h1 className="text-3xl font-bold text-gray-900 sm:text-5xl">
+            <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl">
               Our Partners
             </h1>
           </Slide>
           <Slide delay={0.2}>
-            <p className="mt-4 text-xl text-gray-600">
+            <p className="mt-4 text-lg text-gray-600">
               Hear directly from our satisfied customers
             </p>
           </Slide>

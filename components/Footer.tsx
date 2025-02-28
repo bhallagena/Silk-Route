@@ -74,10 +74,19 @@ const Footer = (props: Props) => {
 
               {/* Products */}
               <div>
-                <h3 className="text-lg font-semibold mb-4">PRODUCTS</h3>
+                <h3 className="text-lg font-semibold mb-4">COLLECTIONS</h3>
                 <ul className="space-y-2 text-gray-300 text-sm">
-                  <li>» Garments</li>
-                  <li>» Scarves</li>
+                <li  >
+                      <Link href="/collection">
+                      » Summer
+                      </Link>
+                    </li>
+                  
+                  <li  >
+                      <Link href="/collection">
+                      » Winter
+                      </Link>
+                    </li>
                 </ul>
               </div>
 

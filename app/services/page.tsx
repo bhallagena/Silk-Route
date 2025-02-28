@@ -210,10 +210,10 @@ const csrImages2: CSRImage[] = [
               <Briefcase className="w-12 h-12 text-primary" />
               </div>
             <Slide>
-            <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl">Our Services</h1>
+            <h1 className="text-4xl font-bold text-gray-900 sm:text-4xl">Our Services</h1>
             </Slide>
             <Slide delay={0.2}>
-            <p className="mt-4 text-xl text-gray-600">Our skilled artisans ensure every piece reflects our rich cultural heritage and commitment to excellence through rigorous quality control and meticulous attention to detail</p>
+            <p className="mt-4 text-lg text-gray-600">Our skilled artisans ensure every piece reflects our rich cultural heritage and commitment to excellence through rigorous quality control and meticulous attention to detail</p>
             </Slide>
           </div>
           <div className="absolute inset-0 max-w-xs mx-auto h-44 blur-[118px]"></div>

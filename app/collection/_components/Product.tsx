@@ -88,7 +88,7 @@ const Product = ({ id }: Props) => {
         <div className="flex flex-col gap-10">
           <div className="flex flex-row justify-between items-start gap-32">
             <div>
-              <h3 className="text-3xl font-bold">{data.id}</h3>
+              <h3 className="text-3xl font-bold">{data.name}</h3>
             </div>
             <div>
               <Heart
@@ -98,6 +98,7 @@ const Product = ({ id }: Props) => {
             </div>
           </div>
           <AccordionExample />
+          
           <Link href="/contact">
             <button className="text-white bg-[#1e1d25] hover:bg-[#3a3941] py-4 uppercase font-bold rounded-md w-full">
               Enquire Now

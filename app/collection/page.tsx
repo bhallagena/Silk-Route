@@ -7,7 +7,6 @@ import { collections, CollectionType } from "@/data";
 import Link from "next/link";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
-import { getImagesUrl } from "@/lib/get-image-data";
 import { LucideLoader } from "lucide-react";
 
 // Skeleton loader component
@@ -20,11 +19,6 @@ const ProductCard = ({ item }: { item: CollectionType }) => {
     threshold: 0,
     triggerOnce: true,
   });
-  const [urls, setUrls] = React.useState<string[] | null>(null);
-
-  useEffect(() => {
-    getImagesUrl(`1/`).then((data) => setUrls(data));
-  }, []);
 
   const [isLoading, setIsLoading] = React.useState(true);
   const [isHoverLoading, setIsHoverLoading] = React.useState(true);
@@ -42,7 +36,7 @@ const ProductCard = ({ item }: { item: CollectionType }) => {
       <div className="group cursor-pointer" ref={ref}>
         <div className="relative aspect-[3/4] w-full overflow-hidden bg-gray-100">
           {/* Skeleton loader */}
-          {(isLoading || isHoverLoading || urls === null) && <ImageSkeleton />}
+          {(isLoading || isHoverLoading) && <ImageSkeleton />}
           
           {/* Main image */}
           {inView && (

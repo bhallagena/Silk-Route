@@ -68,8 +68,8 @@ const Product = ({ id }: Props) => {
 
   return (
     <div className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto ">
-      <div className="flex flex-col md:flex-row md:justify-center gap-20">
-        <div className="relative overflow-hidden group cursor-pointer w-96 h-full rounded-md">
+      <div className="flex flex-col md:flex-row md:justify-center md:items-start items-center gap-20">
+        <div className="relative overflow-hidden group cursor-pointer md:w-96 h-full rounded-md">
           <Image
             width={500}
             height={500}

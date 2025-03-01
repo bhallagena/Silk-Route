@@ -1,6 +1,11 @@
+"use client";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { X } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
+import NavLink from "./NavLink";
+import Curve from './Curve';
 
 const navLinks = [
   {
@@ -36,6 +41,16 @@ const navLinks = [
     href: "/contact",
   },
 ];
+const menuSlide = {
+  initial: { x: "calc(100% + 100px)" },
+
+  enter: { x: "0", transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] } },
+
+  exit: {
+    x: "calc(100% + 100px)",
+    transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
+  },
+};
 
 interface SidebarProps {
   isOpen: boolean;
@@ -43,39 +58,56 @@ interface SidebarProps {
 }
 
 const Sidebar = ({ isOpen, setIsOpen }: SidebarProps) => {
+  const pathname = usePathname();
+
+  const [selectedIndicator, setSelectedIndicator] = useState(pathname);
   return (
     <>
-      {/* Sidebar */}
-      <div
-        className={`fixed top-0 right-0 z-50 h-screen bg-white/90 backdrop-blur-md shadow-lg transform transition-transform duration-300 ease-in-out w-64 ${
+      <motion.div
+        variants={menuSlide}
+        initial="initial"
+        animate="enter"
+        exit="exit"
+        className={`h-screen fixed right-0 top-0 bg-black w-screen text-white ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex items-center justify-between p-5 border-b">
-          <h2 className="text-xl font-semibold">Menu</h2>
-          <button
-            onClick={() => setIsOpen(false)}
-            className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+        <div className="flex flex-col justify-between">
+          <div
+            onMouseLeave={() => {
+              setSelectedIndicator(pathname);
+            }}
+            className="gap-3 text-xl "
           >
-            <X className="h-6 w-6" />
-          </button>
-        </div>
+            <div className="flex items-center justify-between p-5 border-b  uppercase text-2xl ">
+              <div className="w-11"></div>
+              <p className="text-center">Navigation</p>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="p-2 cursor-pointer rounded-full transition-colors"
+              >
+                <X className="h-6 w-6" />
+              </button>
+            </div>
+            <div className="flex flex-col items-center justify-center gap-6  text-2xl p-5">
 
-        <nav className="py-4">
-          <ul className="space-y-1">
-            {navLinks.map((link, index) => (
-              <li key={index}>
-                <Link
-                  href={link.href}
-                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors duration-200"
-                >
-                  {link.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </div>
+            {navLinks.map((data, index) => {
+              return (
+                <NavLink
+                  key={index}
+                  data={{ ...data, index }}
+                  isActive={selectedIndicator == data.href}
+                  setSelectedIndicator={setSelectedIndicator}
+                  selectedIndicator={selectedIndicator}
+                  setIsOpen={setIsOpen}
+                ></NavLink>
+              );
+            })}
+            </div>
+          </div>
+        </div>
+        <Curve/>
+      </motion.div>
     </>
   );
 };

@@ -89,7 +89,7 @@ const Sidebar = ({ isOpen, setIsOpen }: SidebarProps) => {
                 <X className="h-6 w-6" />
               </button>
             </div>
-            <div className="flex flex-col items-center justify-center gap-6  text-2xl p-5">
+            <div className="flex flex-col items-center justify-center gap-5  text-2xl p-5">
 
             {navLinks.map((data, index) => {
               return (

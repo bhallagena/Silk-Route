@@ -13,22 +13,22 @@ export default function Home() {
   const collectionItems = [
     {
       id: 1,
-      defaultImage: "/images/0A4A1984-3.jpg",
-      hoverImage: "/images/0A4A1981-1.jpg",
+      defaultImage: "https://firebasestorage.googleapis.com/v0/b/silk-route-9f98d.firebasestorage.app/o/11%2F0A4A1981-1.jpg?alt=media&token=6bb978bd-8e37-4c83-b578-ff4df6072a89",
+      hoverImage: "https://firebasestorage.googleapis.com/v0/b/silk-route-9f98d.firebasestorage.app/o/11%2F0A4A1984-3.jpg?alt=media&token=9596e9e0-c191-4e67-a6d8-49ea17ead155",
       name: "Summer Collection",
     },
 
     {
       id: 2,
-      defaultImage: "/images/0A4A1888-1.jpg",
-      hoverImage: "/images/0A4A1895-1.jpg",
+      defaultImage: "https://firebasestorage.googleapis.com/v0/b/silk-route-9f98d.firebasestorage.app/o/4%2F0A4A1888-1.jpg?alt=media&token=8b92ae7e-e28f-4406-b924-b6fd7549e82d",
+      hoverImage: "https://firebasestorage.googleapis.com/v0/b/silk-route-9f98d.firebasestorage.app/o/4%2F0A4A1895-1.jpg?alt=media&token=b1fcd307-4ed8-4110-9b4f-c4c7d2c70fb9",
       name: "Winter Elegance",
     },
     {
       id: 3,
-      defaultImage: "/images/0A4A2069-1.jpg",
-      hoverImage: "/images/0A4A2067-1.jpg",
-      name: "Autumn Essentials",
+      defaultImage: "https://firebasestorage.googleapis.com/v0/b/silk-route-9f98d.firebasestorage.app/o/15%2F0A4A2067-1.jpg?alt=media&token=f7bda7ea-9ca2-4f15-b841-eb6f3229fe04",
+      hoverImage: "https://firebasestorage.googleapis.com/v0/b/silk-route-9f98d.firebasestorage.app/o/15%2F0A4A2069-1.jpg?alt=media&token=adc90638-1262-4627-abae-ef3b2879a57a",
+      name: "Winter Elegance",
     },
   ];
   const logoSources = [
@@ -69,12 +69,12 @@ export default function Home() {
         {isLoading && <Preloader key="1" />}
       </AnimatePresence>
       <section className="h-screen relative overflow-hidden">
-        {/* <img
+        <img
           src="/111.jpg"
           alt="Hero"
           className="absolute inset-0 w-full h-full object-cover"
-        /> */}
-        <video
+        />
+        {/* <video
           key="background-video"
           autoPlay
           loop
@@ -90,7 +90,7 @@ export default function Home() {
         >
           <source src="/videos/silkroute-landing.mp4" type="video/mp4" />
           Your browser does not support the video tag.
-        </video>
+        </video> */}
         <div className="absolute inset-0 bg-black/20" />
         <div className="absolute inset-0 flex items-center justify-center text-white">
           <div className="text-center">
@@ -120,7 +120,7 @@ export default function Home() {
         <Slide>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {collectionItems.map((item) => (
-              <Link href={`/collection/${item.id}`} passHref key={item.id}>
+              <Link href={`/collection`} passHref key={item.id}>
                 <div className="group relative cursor-pointer ">
                   <div className="relative overflow-hidden">
                     <Image

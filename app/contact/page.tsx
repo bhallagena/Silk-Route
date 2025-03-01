@@ -11,12 +11,12 @@ export default function ContactPage() {
             <Contact className="w-12 h-12 text-primary" />
           </div>
           <Slide>
-          <h1 className="text-3xl font-bold text-gray-900 sm:text-5xl text-center">
+          <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl text-center">
             Contact Us
           </h1>
           </Slide>
           <Slide delay={0.2}>
-          <p className="mt-4 text-xl text-gray-600 text-center">
+          <p className="mt-4 text-lg text-gray-600 text-center">
             Get in touch with us for any inquiries or collaboration
             opportunities.
           </p>

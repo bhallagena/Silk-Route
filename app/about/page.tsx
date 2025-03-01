@@ -24,7 +24,7 @@ const features: FeatureSection[] = [
     title: "Our Commitment to Excellence",
     content: "At Silkroute, our dedication to quality is unwavering. We uphold strict in-house quality control standards, ensure prompt communication, and guarantee on-time delivery, making us a trusted partner for over 20 global brands.",
     icon: <Award className="w-6 h-6 text-primary" />,
-    image: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=800&auto=format&fit=crop&q=80"
+    image: "https://firebasestorage.googleapis.com/v0/b/silk-route-9f98d.firebasestorage.app/o/about%2Fpexels-cagri-besli-387362595-16651103.jpg?alt=media&token=ced6f20c-ff91-40fe-87a1-0a992688c9b6"
   },
   {
     id: 3,
@@ -38,7 +38,7 @@ const features: FeatureSection[] = [
     title: "Production",
     content: "Every masterpiece begins with the highest quality fabric, transformed through our meticulous production process. Our skilled artisans use a variety of techniques—from traditional handloom weaving to innovative digital printing—to craft premium scarves and garments that honor our cultural heritage while meeting modern fashion trends.",
     icon: <Factory className="w-6 h-6 text-primary" />,
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&auto=format&fit=crop&q=80"
+    image: "https://firebasestorage.googleapis.com/v0/b/silk-route-9f98d.firebasestorage.app/o/about%2FIMG-20250129-WA0021.jpg?alt=media&token=3a120750-31bb-4db3-b039-dc7ce73dcdf2"
   }
 ];
 
@@ -83,12 +83,12 @@ function AboutPage() {
             <BadgeInfo className="w-12 h-12 text-primary" />
           </div>
           <Slide>
-          <h1 className="text-3xl font-bold text-gray-900 sm:text-5xl mb-6 text-center">
+          <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl mb-6 text-center">
             About Us
           </h1>
           </Slide>
           <Slide delay={0.2}>
-          <p className="text-xl text-gray-600 text-center">
+          <p className="text-lg text-gray-600 text-center">
             Discover the story of Silkroute, where tradition meets innovation in textile craftsmanship.
           </p>
           </Slide>

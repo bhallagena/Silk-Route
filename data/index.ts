@@ -23,6 +23,7 @@ export interface CollectionType {
   image: string;
   hoverImage: string;
   tag: string;
+  desc: string;
 }
 
 export const collections = [
@@ -475,10 +476,3 @@ export const collections = [
   }
 ];
 
-export const accordionItems = [
-  {
-    title: "Description",
-    content:
-      "Discover new worlds of information with our interactive learning platform.",
-  }
-];

@@ -97,7 +97,7 @@ const Product = ({ id }: Props) => {
               />
             </div>
           </div>
-          <AccordionExample />
+          <AccordionExample description={data.desc} />
           
           <Link href="/contact">
             <button className="text-white bg-[#1e1d25] hover:bg-[#3a3941] py-4 uppercase font-bold rounded-md w-full">

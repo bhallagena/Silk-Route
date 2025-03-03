@@ -160,29 +160,18 @@ const Page = (props: Props) => {
     url: "/services/11.jpg",
     alt: "Medical camp banner",
   },
+  {
+    id: 6,
+    url: "/services/12.jpg",
+    alt: "Medical camp banner",
+  },
+  {
+    id: 7,
+    url: "/services/13.jpg",
+    alt: "Medical camp banner",
+  },
 ];
-const csrImages2: CSRImage[] = [
-  {
-    id: 1,
-    url: "/csr/6.jpg",
-    alt: "Medical camp registration",
-  },
-  {
-    id: 2,
-    url: "/csr/7.jpg",
-    alt: "People waiting in line",
-  },
-  {
-    id: 3,
-    url: "/csr/8.jpg",
-    alt: "Doctor consultation",
-  },
-  {
-    id: 4,
-    url: "/csr/9.jpg",
-    alt: "Camp entrance",
-  },
-]
+
    const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
       null
     );

@@ -69,12 +69,12 @@ export default function Home() {
         {isLoading && <Preloader key="1" />}
       </AnimatePresence>
       <section className="h-screen relative overflow-hidden">
-        {/* <img
-          src="/111.jpg"
+        <img
+          src="/111.png"
           alt="Hero"
-          className="absolute inset-0 w-full h-full object-cover"
-        /> */}
-        <video
+          className="absolute w-full h-full object-cover"
+        />
+        {/* <video
           key="background-video"
           autoPlay
           loop
@@ -90,7 +90,7 @@ export default function Home() {
         >
           <source src="/videos/silkroute-landing.mp4" type="video/mp4" />
           Your browser does not support the video tag.
-        </video>
+        </video> */}
         <div className="absolute inset-0 bg-black/20" />
         <div className="absolute inset-0 flex items-center justify-center text-white">
           <div className="text-center">

@@ -1,4 +1,3 @@
-import { accordionItems } from "@/data";
 import { motion, Variants } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import React, { useState } from "react";
@@ -97,7 +96,18 @@ const Accordion: React.FC<AccordionProps> = ({ items }) => {
   );
 };
 
-const AccordionExample: React.FC = () => {
+interface AccordionExampleProps {
+  description: string;
+}
+
+const AccordionExample: React.FC<AccordionExampleProps> = ({ description }) => {
+  const accordionItems = [
+    {
+      title: "Description",
+      content: description,
+    },
+  ];
+  
   return (
     <div>
       <div>

@@ -87,14 +87,13 @@ body {
   }
 }
 
-.animate-slider{
+.animate-slider {
   animation: 30s slide infinite linear;
 }
-.animate-slidee{
+.animate-slidee {
   animation: 30s slide2 infinite linear;
 }
-.introduction{
-
+.introduction {
   height: 100vh;
 
   width: 100vw;
@@ -111,56 +110,47 @@ body {
 
   background-color: #141516;
 
-  svg{
+  svg {
+    position: absolute;
 
-      position: absolute;
+    top: 0;
 
-      top: 0;
+    width: 100%;
 
-      width: 100%;
+    height: calc(100% + 300px);
 
-      height: calc(100% + 300px);
-
-      path{
-
-          fill: #141516;
-
-      }
-
+    path {
+      fill: #141516;
+    }
   }
 
-  p{
+  p {
+    display: flex;
 
-      display: flex;
+    color: white;
 
-      color: white;
+    font-size: 42px;
 
-      font-size: 42px;
+    align-items: center;
 
-      align-items: center;
+    position: absolute;
 
-      position: absolute;
+    z-index: 1;
 
-      z-index: 1;
+    span {
+      display: block;
 
-      span{
+      width: 10px;
 
-          display: block;
+      height: 10px;
 
-          width: 10px;
+      background-color: white;
 
-          height: 10px;
+      border-radius: 50%;
 
-          background-color: white;
-
-          border-radius: 50%;
-
-          margin-right: 10px;
-
-      }
-
+      margin-right: 10px;
+    }
   }
-
 }
 
 @layer base {

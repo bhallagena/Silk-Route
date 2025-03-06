@@ -414,7 +414,7 @@ export const collections = [
     id: 44,
     name: "g241185H",
     price: 799,
-    image: "https://firebasestorage.googleapis.com/v0/b/silk-route-9f98d.firebasestorage.app/o/44%2F0A4A2446-1.jpg?alt=media&token=783dc5db-582f-4c37-915a-6db40071d9df",
+    image: "https://firebasestorage.googleapis.com/v0/b/silk-route-9f98d.firebasestorage.app/o/44%2F0A4A2442-1.jpg?alt=media&token=1ba726bc-1ef7-431d-ac03-2b9c7b33c0f1",
     hoverImage: "https://firebasestorage.googleapis.com/v0/b/silk-route-9f98d.firebasestorage.app/o/44%2F0A4A2450-1.jpg?alt=media&token=5a21636e-9aff-45fb-a14a-7d103bab3a3e",
     tag: "summer",
     desc: "White top featuring a refined knitted design that adds subtle texture to its clean silhouette. A seamless blend of traditional craftsmanship and contemporary style"

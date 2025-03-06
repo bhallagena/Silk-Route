@@ -70,9 +70,9 @@ export default function Home() {
       </AnimatePresence>
       <section className="h-screen relative overflow-hidden">
         <img
-          src="/111.jpg"
+          src="/WB EDITED 1.png"
           alt="Hero"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full max-h-fit object-cover"
         />
         {/* <video
           key="background-video"
